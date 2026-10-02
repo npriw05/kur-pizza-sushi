@@ -1,0 +1,774 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link href="./dist/output.css" rel="stylesheet">
+    <title>Kur Pizza Sushi</title>
+</head>
+<body class="bg-white font-mono">
+    <nav class="fixed top-0 left-0 w-full z-50 bg-[#171717]/95 backdrop-blur-sm animate-slide-up">
+        <div class="max-w-7xl mx-auto flex items-center justify-between px-4 md:px-10 py-3">
+
+            <img src="./img/logo.jpg" 
+                 alt="Logo" 
+                 class="w-14 h-14 md:w-16 md:h-16 rounded-full object-cover 
+                        hover:scale-110 transition duration-300 cursor-pointer">
+
+            <ul class="list-none flex items-center gap-4 md:gap-50 text-white">
+                <li><a href="#home" class="hover:text-[#f25623] cursor-pointer text-sm md:text-lg transition duration-300 ease-out">Home</a></li>
+                <li><a href="#menu" class="hover:text-[#f25623] cursor-pointer text-sm md:text-lg transition duration-300 ease-out">Menu</a></li>
+                <li><a href="#contact" class="hover:text-[#f25623] cursor-pointer text-sm md:text-lg transition duration-300 ease-out">Contact us</a></li>
+            </ul>
+
+            <div onclick="openCart()" class="relative cursor-pointer group">
+                <svg xmlns="http://www.w3.org/2000/svg" 
+                     class="w-7 h-7 md:w-8 md:h-8 text-white group-hover:text-[#f25623] transition duration-300" 
+                     fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" 
+                          d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"/>
+                </svg>
+                <span id="cartCount" 
+                      class="absolute -top-1 -right-1 bg-[#f25623] text-white text-xs 
+                             rounded-full w-5 h-5 flex items-center justify-center font-bold">
+                    0
+                </span>
+            </div>
+
+        </div>
+    </nav>
+
+    <div id="home" class="relative pt-20">
+        <img src="./img/arxaplan.jpg" alt="" class="w-full h-500 md:h-600 object-cover">
+
+        <h1 class="absolute top-28 md:top-40 left-1/2 -translate-x-1/2 
+                   text-4xl md:text-6xl font-bold text-white text-center
+                   hover:text-[#f25623] cursor-pointer transition duration-300 ease-out 
+                   whitespace-nowrap px-4 animate-slide-up-delay-1">
+            Kur Pizza Sushi
+        </h1>
+
+        <div class="absolute top-48 md:top-72 left-1/2 -translate-x-1/2 
+                    flex flex-col md:flex-row gap-3 md:gap-5 px-4 animate-slide-up-delay-2">
+            <a href="#menu" class="bg-[#f25623] hover:bg-[#171717] text-white 
+                      px-6 md:px-8 py-3 rounded-full transition duration-300 text-center
+                      font-semibold text-sm md:text-base cursor-pointer">
+                See Menu
+            </a>
+            <a href="#contact" class="bg-white hover:bg-[#171717] text-[#171717] hover:text-white 
+                      px-6 md:px-8 py-3 rounded-full transition duration-300 text-center
+                      font-semibold text-sm md:text-base cursor-pointer">
+                Order Online
+            </a>
+        </div>
+    </div>
+
+   
+    <section id="menu" class="bg-white py-20 px-4 md:px-10">
+        <div class="max-w-7xl mx-auto">
+
+            <h2 class="text-4xl md:text-5xl font-bold text-center mb-16 text-[#171717] 
+                       hover:text-[#f25623] cursor-pointer transition duration-300 ease-out animate-slide-up-delay-3">
+                Menyu
+            </h2>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+
+               
+                <div class="menu-column border border-[#171717]">
+                    <h3 class="text-center py-3 border-b border-[#171717] font-semibold text-lg text-[#f25623]">
+                        Soyuq Rollar
+                    </h3>
+                    <div class="divide-y divide-[#171717]">
+                        <div class="menu-item group p-3 cursor-pointer relative overflow-hidden">
+                            <div class="flex items-center gap-3">
+                                <img src="./img/californiaroll.jpg" alt="" class="w-12 h-12 rounded-full object-cover">
+                                <p class="font-medium">California Roll</p>
+                            </div>
+                            <div class="hidden-info absolute inset-0 bg-[#171717] text-white p-3 opacity-0 group-hover:opacity-100 transition duration-300 flex flex-col items-center justify-center">
+                                <p class="font-bold">California Roll</p>
+                                <p class="text-[#f25623] font-bold mb-2">11 AZN</p>
+                                <button onclick="addToCart('California Roll', 11)" 
+                                        class="bg-[#f25623] hover:bg-white hover:text-[#171717] text-white 
+                                               px-4 py-1 rounded-full text-sm transition duration-300 font-semibold">
+                                    + Səbətə əlavə et
+                                </button>
+                            </div>
+                        </div>
+                        <div class="menu-item group p-3 cursor-pointer relative overflow-hidden">
+                            <div class="flex items-center gap-3">
+                                <img src="./img/philadelfia.jpg" alt="" class="w-12 h-12 rounded-full object-cover">
+                                <p class="font-medium">Philadelphia Roll</p>
+                            </div>
+                            <div class="hidden-info absolute inset-0 bg-[#171717] text-white p-3 opacity-0 group-hover:opacity-100 transition duration-300 flex flex-col items-center justify-center">
+                                <p class="font-bold">Philadelphia Roll</p>
+                                <p class="text-[#f25623] font-bold mb-2">12 AZN</p>
+                                <button onclick="addToCart('Philadelphia Roll', 12)" 
+                                        class="bg-[#f25623] hover:bg-white hover:text-[#171717] text-white 
+                                               px-4 py-1 rounded-full text-sm transition duration-300 font-semibold">
+                                    + Səbətə əlavə et
+                                </button>
+                            </div>
+                        </div>
+                        <div class="menu-item group p-3 cursor-pointer relative overflow-hidden">
+                            <div class="flex items-center gap-3">
+                                <img src="./img/chickenroll.jpg" alt="" class="w-12 h-12 rounded-full object-cover">
+                                <p class="font-medium">Chicken Chips Roll</p>
+                            </div>
+                            <div class="hidden-info absolute inset-0 bg-[#171717] text-white p-3 opacity-0 group-hover:opacity-100 transition duration-300 flex flex-col items-center justify-center">
+                                <p class="font-bold">Chicken Chips Roll</p>
+                                <p class="text-[#f25623] font-bold mb-2">9 AZN</p>
+                                <button onclick="addToCart('Chicken Chips Roll', 9)" 
+                                        class="bg-[#f25623] hover:bg-white hover:text-[#171717] text-white 
+                                               px-4 py-1 rounded-full text-sm transition duration-300 font-semibold">
+                                    + Səbətə əlavə et
+                                </button>
+                            </div>
+                        </div>
+                        <div class="menu-item group p-3 cursor-pointer relative overflow-hidden">
+                            <div class="flex items-center gap-3">
+                                <img src="./img/dragon rol.jpg" alt="" class="w-12 h-12 rounded-full object-cover">
+                                <p class="font-medium">Dragon Roll</p>
+                            </div>
+                            <div class="hidden-info absolute inset-0 bg-[#171717] text-white p-3 opacity-0 group-hover:opacity-100 transition duration-300 flex flex-col items-center justify-center">
+                                <p class="font-bold">Dragon Roll</p>
+                                <p class="text-[#f25623] font-bold mb-2">13 AZN</p>
+                                <button onclick="addToCart('Dragon Roll', 13)" 
+                                        class="bg-[#f25623] hover:bg-white hover:text-[#171717] text-white 
+                                               px-4 py-1 rounded-full text-sm transition duration-300 font-semibold">
+                                    + Səbətə əlavə et
+                                </button>
+                            </div>
+                        </div>
+                        <div class="menu-item group p-3 cursor-pointer relative overflow-hidden">
+                            <div class="flex items-center gap-3">
+                                <img src="./img/tiger roll.jpg" alt="" class="w-12 h-12 rounded-full object-cover">
+                                <p class="font-medium">Tiger Roll</p>
+                            </div>
+                            <div class="hidden-info absolute inset-0 bg-[#171717] text-white p-3 opacity-0 group-hover:opacity-100 transition duration-300 flex flex-col items-center justify-center">
+                                <p class="font-bold">Tiger Roll</p>
+                                <p class="text-[#f25623] font-bold mb-2">13 AZN</p>
+                                <button onclick="addToCart('Tiger Roll', 13)" 
+                                        class="bg-[#f25623] hover:bg-white hover:text-[#171717] text-white 
+                                               px-4 py-1 rounded-full text-sm transition duration-300 font-semibold">
+                                    + Səbətə əlavə et
+                                </button>
+                            </div>
+                        </div>
+                        <div class="menu-item group p-3 cursor-pointer relative overflow-hidden">
+                            <div class="flex items-center gap-3">
+                                <img src="./img/chesee roll.jpg" alt="" class="w-12 h-12 rounded-full object-cover">
+                                <p class="font-medium">Cheese Roll</p>
+                            </div>
+                            <div class="hidden-info absolute inset-0 bg-[#171717] text-white p-3 opacity-0 group-hover:opacity-100 transition duration-300 flex flex-col items-center justify-center">
+                                <p class="font-bold">Cheese Roll</p>
+                                <p class="text-[#f25623] font-bold mb-2">10 AZN</p>
+                                <button onclick="addToCart('Cheese Roll', 10)" 
+                                        class="bg-[#f25623] hover:bg-white hover:text-[#171717] text-white 
+                                               px-4 py-1 rounded-full text-sm transition duration-300 font-semibold">
+                                    + Səbətə əlavə et
+                                </button>
+                            </div>
+                        </div>
+                        <div class="menu-item group p-3 cursor-pointer relative overflow-hidden">
+                            <div class="flex items-center gap-3">
+                                <img src="./img/Ролл.jpg" alt="" class="w-12 h-12 rounded-full object-cover">
+                                <p class="font-medium">Love Roll</p>
+                            </div>
+                            <div class="hidden-info absolute inset-0 bg-[#171717] text-white p-3 opacity-0 group-hover:opacity-100 transition duration-300 flex flex-col items-center justify-center">
+                                <p class="font-bold">Love Roll</p>
+                                <p class="text-[#f25623] font-bold mb-2">11 AZN</p>
+                                <button onclick="addToCart('Love Roll', 11)" 
+                                        class="bg-[#f25623] hover:bg-white hover:text-[#171717] text-white 
+                                               px-4 py-1 rounded-full text-sm transition duration-300 font-semibold">
+                                    + Səbətə əlavə et
+                                </button>
+                            </div>
+                        </div>
+                        <div class="menu-item group p-3 cursor-pointer relative overflow-hidden">
+                            <div class="flex items-center gap-3">
+                                <img src="./img/Strawberry Cake.jpg" alt="" class="w-12 h-12 rounded-full object-cover">
+                                <p class="font-medium">Strawberry Cake Roll</p>
+                            </div>
+                            <div class="hidden-info absolute inset-0 bg-[#171717] text-white p-3 opacity-0 group-hover:opacity-100 transition duration-300 flex flex-col items-center justify-center">
+                                <p class="font-bold">Strawberry Cake Roll</p>
+                                <p class="text-[#f25623] font-bold mb-2">12 AZN</p>
+                                <button onclick="addToCart('Strawberry Cake Roll', 12)" 
+                                        class="bg-[#f25623] hover:bg-white hover:text-[#171717] text-white 
+                                               px-4 py-1 rounded-full text-sm transition duration-300 font-semibold">
+                                    + Səbətə əlavə et
+                                </button>
+                            </div>
+                        </div>
+                        <div class="menu-item group p-3 cursor-pointer relative overflow-hidden">
+                            <div class="flex items-center gap-3">
+                                <img src="./img/vegeterian roll.jpg" alt="" class="w-12 h-12 rounded-full object-cover">
+                                <p class="font-medium">Vegeterian Roll</p>
+                            </div>
+                            <div class="hidden-info absolute inset-0 bg-[#171717] text-white p-3 opacity-0 group-hover:opacity-100 transition duration-300 flex flex-col items-center justify-center">
+                                <p class="font-bold">Vegeterian Roll</p>
+                                <p class="text-[#f25623] font-bold mb-2">8 AZN</p>
+                                <button onclick="addToCart('Vegeterian Roll', 8)" 
+                                        class="bg-[#f25623] hover:bg-white hover:text-[#171717] text-white 
+                                               px-4 py-1 rounded-full text-sm transition duration-300 font-semibold">
+                                    + Səbətə əlavə et
+                                </button>
+                            </div>
+                        </div>
+                        <div class="menu-item group p-3 cursor-pointer relative overflow-hidden">
+                            <div class="flex items-center gap-3">
+                                <img src="./img/tuna.jpg" alt="" class="w-12 h-12 rounded-full object-cover">
+                                <p class="font-medium">Spice Tuna Roll</p>
+                            </div>
+                            <div class="hidden-info absolute inset-0 bg-[#171717] text-white p-3 opacity-0 group-hover:opacity-100 transition duration-300 flex flex-col items-center justify-center">
+                                <p class="font-bold">Spice Tuna Roll</p>
+                                <p class="text-[#f25623] font-bold mb-2">10 AZN</p>
+                                <button onclick="addToCart('Spice Tuna Roll', 10)" 
+                                        class="bg-[#f25623] hover:bg-white hover:text-[#171717] text-white 
+                                               px-4 py-1 rounded-full text-sm transition duration-300 font-semibold">
+                                    + Səbətə əlavə et
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="menu-column border border-[#171717]">
+                    <h3 class="text-center py-3 border-b border-[#171717] font-semibold text-lg text-[#f25623]">
+                        İsti Rollar
+                    </h3>
+                    <div class="divide-y divide-[#171717]">
+                        <div class="menu-item group p-3 cursor-pointer relative overflow-hidden">
+                            <div class="flex items-center gap-3">
+                                <img src="./img/tempura chicken.jpg" alt="" class="w-12 h-12 rounded-full object-cover">
+                                <p class="font-medium">Tempura Chicken</p>
+                            </div>
+                            <div class="hidden-info absolute inset-0 bg-[#171717] text-white p-3 opacity-0 group-hover:opacity-100 transition duration-300 flex flex-col items-center justify-center">
+                                <p class="font-bold">Tempura Chicken</p>
+                                <p class="text-[#f25623] font-bold mb-2">14 AZN</p>
+                                <button onclick="addToCart('Tempura Chicken', 14)" 
+                                        class="bg-[#f25623] hover:bg-white hover:text-[#171717] text-white 
+                                               px-4 py-1 rounded-full text-sm transition duration-300 font-semibold">
+                                    + Səbətə əlavə et
+                                </button>
+                            </div>
+                        </div>
+                        <div class="menu-item group p-3 cursor-pointer relative overflow-hidden">
+                            <div class="flex items-center gap-3">
+                                <img src="./img/tempura salmon.jpg" alt="" class="w-12 h-12 rounded-full object-cover">
+                                <p class="font-medium">Tempura Salmon</p>
+                            </div>
+                            <div class="hidden-info absolute inset-0 bg-[#171717] text-white p-3 opacity-0 group-hover:opacity-100 transition duration-300 flex flex-col items-center justify-center">
+                                <p class="font-bold">Tempura Salmon</p>
+                                <p class="text-[#f25623] font-bold mb-2">16 AZN</p>
+                                <button onclick="addToCart('Tempura Salmon', 16)" 
+                                        class="bg-[#f25623] hover:bg-white hover:text-[#171717] text-white 
+                                               px-4 py-1 rounded-full text-sm transition duration-300 font-semibold">
+                                    + Səbətə əlavə et
+                                </button>
+                            </div>
+                        </div>
+                        <div class="menu-item group p-3 cursor-pointer relative overflow-hidden">
+                            <div class="flex items-center gap-3">
+                                <img src="./img/tuna.jpg" alt="" class="w-12 h-12 rounded-full object-cover">
+                                <p class="font-medium">Tempura Tuna</p>
+                            </div>
+                            <div class="hidden-info absolute inset-0 bg-[#171717] text-white p-3 opacity-0 group-hover:opacity-100 transition duration-300 flex flex-col items-center justify-center">
+                                <p class="font-bold">Tempura Tuna</p>
+                                <p class="text-[#f25623] font-bold mb-2">18 AZN</p>
+                                <button onclick="addToCart('Tempura Tuna', 18)" 
+                                        class="bg-[#f25623] hover:bg-white hover:text-[#171717] text-white 
+                                               px-4 py-1 rounded-full text-sm transition duration-300 font-semibold">
+                                    + Səbətə əlavə et
+                                </button>
+                            </div>
+                        </div>
+                        <div class="menu-item group p-3 cursor-pointer relative overflow-hidden">
+                            <div class="flex items-center gap-3">
+                                <img src="./img/tempura crab.jpg" alt="" class="w-12 h-12 rounded-full object-cover">
+                                <p class="font-medium">Tempura Crab</p>
+                            </div>
+                            <div class="hidden-info absolute inset-0 bg-[#171717] text-white p-3 opacity-0 group-hover:opacity-100 transition duration-300 flex flex-col items-center justify-center">
+                                <p class="font-bold">Tempura Crab</p>
+                                <p class="text-[#f25623] font-bold mb-2">20 AZN</p>
+                                <button onclick="addToCart('Tempura Crab', 20)" 
+                                        class="bg-[#f25623] hover:bg-white hover:text-[#171717] text-white 
+                                               px-4 py-1 rounded-full text-sm transition duration-300 font-semibold">
+                                    + Səbətə əlavə et
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="menu-column border border-[#171717]">
+                    <h3 class="text-center py-3 border-b border-[#171717] font-semibold text-lg text-[#f25623]">
+                        Lahmacunlar
+                    </h3>
+                    <div class="divide-y divide-[#171717]">
+                        <div class="menu-item group p-3 cursor-pointer relative overflow-hidden">
+                            <div class="flex items-center gap-3">
+                                <img src="./img/lahmacun.jpg" alt="" class="w-12 h-12 rounded-full object-cover">
+                                <p class="font-medium">Acılı Lahmacun</p>
+                            </div>
+                            <div class="hidden-info absolute inset-0 bg-[#171717] text-white p-3 opacity-0 group-hover:opacity-100 transition duration-300 flex flex-col items-center justify-center">
+                                <p class="font-bold">Acılı Lahmacun</p>
+                                <p class="text-[#f25623] font-bold mb-2">4 AZN</p>
+                                <button onclick="addToCart('Acılı Lahmacun', 4)" 
+                                        class="bg-[#f25623] hover:bg-white hover:text-[#171717] text-white 
+                                               px-4 py-1 rounded-full text-sm transition duration-300 font-semibold">
+                                    + Səbətə əlavə et
+                                </button>
+                            </div>
+                        </div>
+                        <div class="menu-item group p-3 cursor-pointer relative overflow-hidden">
+                            <div class="flex items-center gap-3">
+                                <img src="./img/lahmacun.jpg" alt="" class="w-12 h-12 rounded-full object-cover">
+                                <p class="font-medium">Sade Lahmacun</p>
+                            </div>
+                            <div class="hidden-info absolute inset-0 bg-[#171717] text-white p-3 opacity-0 group-hover:opacity-100 transition duration-300 flex flex-col items-center justify-center">
+                                <p class="font-bold">Sade Lahmacun</p>
+                                <p class="text-[#f25623] font-bold mb-2">3 AZN</p>
+                                <button onclick="addToCart('Sade Lahmacun', 3)" 
+                                        class="bg-[#f25623] hover:bg-white hover:text-[#171717] text-white 
+                                               px-4 py-1 rounded-full text-sm transition duration-300 font-semibold">
+                                    + Səbətə əlavə et
+                                </button>
+                            </div>
+                        </div>
+                        <div class="menu-item group p-3 cursor-pointer relative overflow-hidden">
+                            <div class="flex items-center gap-3">
+                                <img src="./img/lahmacun.jpg" alt="" class="w-12 h-12 rounded-full object-cover">
+                                <p class="font-medium">Pendirli Lahmacun</p>
+                            </div>
+                            <div class="hidden-info absolute inset-0 bg-[#171717] text-white p-3 opacity-0 group-hover:opacity-100 transition duration-300 flex flex-col items-center justify-center">
+                                <p class="font-bold">Pendirli Lahmacun</p>
+                                <p class="text-[#f25623] font-bold mb-2">5 AZN</p>
+                                <button onclick="addToCart('Pendirli Lahmacun', 5)" 
+                                        class="bg-[#f25623] hover:bg-white hover:text-[#171717] text-white 
+                                               px-4 py-1 rounded-full text-sm transition duration-300 font-semibold">
+                                    + Səbətə əlavə et
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="menu-column border border-[#171717]">
+                    <h3 class="text-center py-3 border-b border-[#171717] font-semibold text-lg text-[#f25623]">
+                        Fast Foodlar
+                    </h3>
+                    <div class="divide-y divide-[#171717]">
+                        <div class="menu-item group p-3 cursor-pointer relative overflow-hidden">
+                            <div class="flex items-center gap-3">
+                                <img src="./img/qutab.jpg" alt="" class="w-12 h-12 rounded-full object-cover">
+                                <p class="font-medium">Manqal Üstü Qutap (Ət)</p>
+                            </div>
+                            <div class="hidden-info absolute inset-0 bg-[#171717] text-white p-3 opacity-0 group-hover:opacity-100 transition duration-300 flex flex-col items-center justify-center">
+                                <p class="font-bold">Manqal Üstü Qutap (Ət)</p>
+                                <p class="text-[#f25623] font-bold mb-2">7 AZN</p>
+                                <button onclick="addToCart('Manqal Üstü Qutap (Ət)', 7)" 
+                                        class="bg-[#f25623] hover:bg-white hover:text-[#171717] text-white 
+                                               px-4 py-1 rounded-full text-sm transition duration-300 font-semibold">
+                                    + Səbətə əlavə et
+                                </button>
+                            </div>
+                        </div>
+                        <div class="menu-item group p-3 cursor-pointer relative overflow-hidden">
+                            <div class="flex items-center gap-3">
+                                <img src="./img/qutab.jpg" alt="" class="w-12 h-12 rounded-full object-cover">
+                                <p class="font-medium">Manqal Üstü Qutap (Toyuq)</p>
+                            </div>
+                            <div class="hidden-info absolute inset-0 bg-[#171717] text-white p-3 opacity-0 group-hover:opacity-100 transition duration-300 flex flex-col items-center justify-center">
+                                <p class="font-bold">Manqal Üstü Qutap (Toyuq)</p>
+                                <p class="text-[#f25623] font-bold mb-2">6 AZN</p>
+                                <button onclick="addToCart('Manqal Üstü Qutap (Toyuq)', 6)" 
+                                        class="bg-[#f25623] hover:bg-white hover:text-[#171717] text-white 
+                                               px-4 py-1 rounded-full text-sm transition duration-300 font-semibold">
+                                    + Səbətə əlavə et
+                                </button>
+                            </div>
+                        </div>
+                        <div class="menu-item group p-3 cursor-pointer relative overflow-hidden">
+                            <div class="flex items-center gap-3">
+                                <img src="./img/qutab.jpg" alt="" class="w-12 h-12 rounded-full object-cover">
+                                <p class="font-medium">Manqal Üstü Qutap (Tərəvəz)</p>
+                            </div>
+                            <div class="hidden-info absolute inset-0 bg-[#171717] text-white p-3 opacity-0 group-hover:opacity-100 transition duration-300 flex flex-col items-center justify-center">
+                                <p class="font-bold">Manqal Üstü Qutap (Tərəvəz)</p>
+                                <p class="text-[#f25623] font-bold mb-2">5 AZN</p>
+                                <button onclick="addToCart('Manqal Üstü Qutap (Tərəvəz)', 5)" 
+                                        class="bg-[#f25623] hover:bg-white hover:text-[#171717] text-white 
+                                               px-4 py-1 rounded-full text-sm transition duration-300 font-semibold">
+                                    + Səbətə əlavə et
+                                </button>
+                            </div>
+                        </div>
+                        <div class="menu-item group p-3 cursor-pointer relative overflow-hidden">
+                            <div class="flex items-center gap-3">
+                                <img src="./img/nuggets.jpg" alt="" class="w-12 h-12 rounded-full object-cover">
+                                <p class="font-medium">Nuggets</p>
+                            </div>
+                            <div class="hidden-info absolute inset-0 bg-[#171717] text-white p-3 opacity-0 group-hover:opacity-100 transition duration-300 flex flex-col items-center justify-center">
+                                <p class="font-bold">Nuggets</p>
+                                <p class="text-[#f25623] font-bold mb-2">6 AZN</p>
+                                <button onclick="addToCart('Nuggets', 6)" 
+                                        class="bg-[#f25623] hover:bg-white hover:text-[#171717] text-white 
+                                               px-4 py-1 rounded-full text-sm transition duration-300 font-semibold">
+                                    + Səbətə əlavə et
+                                </button>
+                            </div>
+                        </div>
+                        <div class="menu-item group p-3 cursor-pointer relative overflow-hidden">
+                            <div class="flex items-center gap-3">
+                                <img src="./img/fries.jpg" alt="" class="w-12 h-12 rounded-full object-cover">
+                                <p class="font-medium">Kartof Fri</p>
+                            </div>
+                            <div class="hidden-info absolute inset-0 bg-[#171717] text-white p-3 opacity-0 group-hover:opacity-100 transition duration-300 flex flex-col items-center justify-center">
+                                <p class="font-bold">Kartof Fri</p>
+                                <p class="text-[#f25623] font-bold mb-2">4 AZN</p>
+                                <button onclick="addToCart('Kartof Fri', 4)" 
+                                        class="bg-[#f25623] hover:bg-white hover:text-[#171717] text-white 
+                                               px-4 py-1 rounded-full text-sm transition duration-300 font-semibold">
+                                    + Səbətə əlavə et
+                                </button>
+                            </div>
+                        </div>
+                        <div class="menu-item group p-3 cursor-pointer relative overflow-hidden">
+                            <div class="flex items-center gap-3">
+                                <img src="./img/fries.jpg" alt="" class="w-12 h-12 rounded-full object-cover">
+                                <p class="font-medium">Evsayagı Kartof Fri</p>
+                            </div>
+                            <div class="hidden-info absolute inset-0 bg-[#171717] text-white p-3 opacity-0 group-hover:opacity-100 transition duration-300 flex flex-col items-center justify-center">
+                                <p class="font-bold">Evsayagı Kartof Fri</p>
+                                <p class="text-[#f25623] font-bold mb-2">5 AZN</p>
+                                <button onclick="addToCart('Evsayagı Kartof Fri', 5)" 
+                                        class="bg-[#f25623] hover:bg-white hover:text-[#171717] text-white 
+                                               px-4 py-1 rounded-full text-sm transition duration-300 font-semibold">
+                                    + Səbətə əlavə et
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+               
+                <div class="menu-column border border-[#171717]">
+                    <h3 class="text-center py-3 border-b border-[#171717] font-semibold text-lg text-[#f25623]">
+                        İçkilər
+                    </h3>
+                    <div class="divide-y divide-[#171717]">
+                        <div class="menu-item group p-3 cursor-pointer relative overflow-hidden">
+                            <div class="flex items-center gap-3">
+                                <img src="./img/cola.jpg" alt="" class="w-12 h-12 rounded-full object-cover">
+                                <p class="font-medium">Cola</p>
+                            </div>
+                            <div class="hidden-info absolute inset-0 bg-[#171717] text-white p-3 opacity-0 group-hover:opacity-100 transition duration-300 flex flex-col items-center justify-center">
+                                <p class="font-bold">Cola</p>
+                                <p class="text-[#f25623] font-bold mb-2">3 AZN</p>
+                                <button onclick="addToCart('Cola', 3)" 
+                                        class="bg-[#f25623] hover:bg-white hover:text-[#171717] text-white 
+                                               px-4 py-1 rounded-full text-sm transition duration-300 font-semibold">
+                                    + Səbətə əlavə et
+                                </button>
+                            </div>
+                        </div>
+                        <div class="menu-item group p-3 cursor-pointer relative overflow-hidden">
+                            <div class="flex items-center gap-3">
+                                <img src="./img/fanta.jpg" alt="" class="w-12 h-12 rounded-full object-cover">
+                                <p class="font-medium">Fanta</p>
+                            </div>
+                            <div class="hidden-info absolute inset-0 bg-[#171717] text-white p-3 opacity-0 group-hover:opacity-100 transition duration-300 flex flex-col items-center justify-center">
+                                <p class="font-bold">Fanta</p>
+                                <p class="text-[#f25623] font-bold mb-2">3 AZN</p>
+                                <button onclick="addToCart('Fanta', 3)" 
+                                        class="bg-[#f25623] hover:bg-white hover:text-[#171717] text-white 
+                                               px-4 py-1 rounded-full text-sm transition duration-300 font-semibold">
+                                    + Səbətə əlavə et
+                                </button>
+                            </div>
+                        </div>
+                        <div class="menu-item group p-3 cursor-pointer relative overflow-hidden">
+                            <div class="flex items-center gap-3">
+                                <img src="./img/sprite.jpg" alt="" class="w-12 h-12 rounded-full object-cover">
+                                <p class="font-medium">Sprite</p>
+                            </div>
+                            <div class="hidden-info absolute inset-0 bg-[#171717] text-white p-3 opacity-0 group-hover:opacity-100 transition duration-300 flex flex-col items-center justify-center">
+                                <p class="font-bold">Sprite</p>
+                                <p class="text-[#f25623] font-bold mb-2">3 AZN</p>
+                                <button onclick="addToCart('Sprite', 3)" 
+                                        class="bg-[#f25623] hover:bg-white hover:text-[#171717] text-white 
+                                               px-4 py-1 rounded-full text-sm transition duration-300 font-semibold">
+                                    + Səbətə əlavə et
+                                </button>
+                            </div>
+                        </div>
+                        <div class="menu-item group p-3 cursor-pointer relative overflow-hidden">
+                            <div class="flex items-center gap-3">
+                                <img src="./img/ayran.jpg" alt="" class="w-12 h-12 rounded-full object-cover">
+                                <p class="font-medium">Ayran</p>
+                            </div>
+                            <div class="hidden-info absolute inset-0 bg-[#171717] text-white p-3 opacity-0 group-hover:opacity-100 transition duration-300 flex flex-col items-center justify-center">
+                                <p class="font-bold">Ayran</p>
+                                <p class="text-[#f25623] font-bold mb-2">2 AZN</p>
+                                <button onclick="addToCart('Ayran', 2)" 
+                                        class="bg-[#f25623] hover:bg-white hover:text-[#171717] text-white 
+                                               px-4 py-1 rounded-full text-sm transition duration-300 font-semibold">
+                                    + Səbətə əlavə et
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="menu-column border border-[#171717]">
+                    <h3 class="text-center py-3 border-b border-[#171717] font-semibold text-lg text-[#f25623]">
+                        Pizzalar
+                    </h3>
+                    <div class="divide-y divide-[#171717]">
+                        <div class="menu-item group p-3 cursor-pointer relative overflow-hidden">
+                            <div class="flex items-center gap-3">
+                                <img src="./img/karisik pizaa.jpg" alt="" class="w-12 h-12 rounded-full object-cover">
+                                <p class="font-medium">Qarışıq Pizza</p>
+                            </div>
+                            <div class="hidden-info absolute inset-0 bg-[#171717] text-white p-3 opacity-0 group-hover:opacity-100 transition duration-300 flex flex-col items-center justify-center">
+                                <p class="font-bold">Qarışıq Pizza</p>
+                                <p class="text-[#f25623] font-bold mb-2">12 AZN</p>
+                                <button onclick="addToCart('Qarışıq Pizza', 12)" 
+                                        class="bg-[#f25623] hover:bg-white hover:text-[#171717] text-white 
+                                               px-4 py-1 rounded-full text-sm transition duration-300 font-semibold">
+                                    + Səbətə əlavə et
+                                </button>
+                            </div>
+                        </div>
+                        <div class="menu-item group p-3 cursor-pointer relative overflow-hidden">
+                            <div class="flex items-center gap-3">
+                                <img src="./img/tavuklu pizza.jpg" alt="" class="w-12 h-12 rounded-full object-cover">
+                                <p class="font-medium">Toyuqlu Pizza</p>
+                            </div>
+                            <div class="hidden-info absolute inset-0 bg-[#171717] text-white p-3 opacity-0 group-hover:opacity-100 transition duration-300 flex flex-col items-center justify-center">
+                                <p class="font-bold">Toyuqlu Pizza</p>
+                                <p class="text-[#f25623] font-bold mb-2">11 AZN</p>
+                                <button onclick="addToCart('Toyuqlu Pizza', 11)" 
+                                        class="bg-[#f25623] hover:bg-white hover:text-[#171717] text-white 
+                                               px-4 py-1 rounded-full text-sm transition duration-300 font-semibold">
+                                    + Səbətə əlavə et
+                                </button>
+                            </div>
+                        </div>
+                        <div class="menu-item group p-3 cursor-pointer relative overflow-hidden">
+                            <div class="flex items-center gap-3">
+                                <img src="./img/mantarli pizza.jpg" alt="" class="w-12 h-12 rounded-full object-cover">
+                                <p class="font-medium">Göbələkli Pizza</p>
+                            </div>
+                            <div class="hidden-info absolute inset-0 bg-[#171717] text-white p-3 opacity-0 group-hover:opacity-100 transition duration-300 flex flex-col items-center justify-center">
+                                <p class="font-bold">Göbələkli Pizza</p>
+                                <p class="text-[#f25623] font-bold mb-2">10 AZN</p>
+                                <button onclick="addToCart('Göbələkli Pizza', 10)" 
+                                        class="bg-[#f25623] hover:bg-white hover:text-[#171717] text-white 
+                                               px-4 py-1 rounded-full text-sm transition duration-300 font-semibold">
+                                    + Səbətə əlavə et
+                                </button>
+                            </div>
+                        </div>
+                        <div class="menu-item group p-3 cursor-pointer relative overflow-hidden">
+                            <div class="flex items-center gap-3">
+                                <img src="./img/margarita.jpg" alt="" class="w-12 h-12 rounded-full object-cover">
+                                <p class="font-medium">Margarita</p>
+                            </div>
+                            <div class="hidden-info absolute inset-0 bg-[#171717] text-white p-3 opacity-0 group-hover:opacity-100 transition duration-300 flex flex-col items-center justify-center">
+                                <p class="font-bold">Margarita</p>
+                                <p class="text-[#f25623] font-bold mb-2">9 AZN</p>
+                                <button onclick="addToCart('Margarita', 9)" 
+                                        class="bg-[#f25623] hover:bg-white hover:text-[#171717] text-white 
+                                               px-4 py-1 rounded-full text-sm transition duration-300 font-semibold">
+                                    + Səbətə əlavə et
+                                </button>
+                            </div>
+                        </div>
+                        <div class="menu-item group p-3 cursor-pointer relative overflow-hidden">
+                            <div class="flex items-center gap-3">
+                                <img src="./img/peperoni.jpg" alt="" class="w-12 h-12 rounded-full object-cover">
+                                <p class="font-medium">Peperoni Pizza</p>
+                            </div>
+                            <div class="hidden-info absolute inset-0 bg-[#171717] text-white p-3 opacity-0 group-hover:opacity-100 transition duration-300 flex flex-col items-center justify-center">
+                                <p class="font-bold">Peperoni Pizza</p>
+                                <p class="text-[#f25623] font-bold mb-2">12 AZN</p>
+                                <button onclick="addToCart('Peperoni Pizza', 12)" 
+                                        class="bg-[#f25623] hover:bg-white hover:text-[#171717] text-white 
+                                               px-4 py-1 rounded-full text-sm transition duration-300 font-semibold">
+                                    + Səbətə əlavə et
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="bg-[#171717] py-20 px-4 md:px-10">
+        <div class="max-w-4xl mx-auto text-center">
+            <h2 class="text-4xl md:text-5xl font-bold mb-8 text-white">Contact Us</h2>
+            <p class="text-gray-400 mb-6">Bize ulaşın</p>
+            <p class="text-xl md:text-2xl font-bold text-[#f25623] mb-3">📍 M.Maqomayev 79, Mingecevir</p>
+            <p class="text-xl md:text-2xl font-bold text-[#f25623]">📞 +994 998 89 91 16</p>
+        </div>
+    </section>
+
+    
+    <div id="cartModal" 
+         class="fixed inset-0 bg-black/60 z-100 hidden items-center justify-center p-4"
+         onclick="closeCart(event)">
+        <div class="bg-white rounded-2xl max-w-2xl w-full max-h-[80vh] overflow-y-auto p-6 relative"
+             onclick="event.stopPropagation()">
+
+            <button onclick="closeCart()" 
+                    class="absolute top-4 right-4 text-gray-500 hover:text-[#f25623] text-3xl font-bold transition">
+                &times;
+            </button>
+
+            <h2 class="text-3xl font-bold mb-6 text-[#171717]">🛒 Səbətim</h2>
+
+            <div id="cartItems" class="space-y-4 mb-6"></div>
+
+            <p id="emptyCart" class="text-center text-gray-400 py-10 text-lg">
+                Səbətiniz boşdur 🛒
+            </p>
+
+            <div class="border-t-2 border-[#171717] pt-4 mt-6">
+                <div class="flex justify-between items-center mb-4">
+                    <span class="text-xl font-bold text-[#171717]">Cəmi:</span>
+                    <span id="cartTotal" class="text-2xl font-bold text-[#f25623]">0 AZN</span>
+                </div>
+                <button onclick="openPayment()" 
+                        class="w-full bg-[#f25623] hover:bg-[#171717] text-white 
+                               py-4 rounded-full font-bold text-lg transition duration-300">
+                    Sifarişi Tamamla
+                </button>
+            </div>
+
+        </div>
+    </div>
+
+    
+    <div id="paymentModal" 
+         class="fixed inset-0 bg-black/60 z-110 hidden items-center justify-center p-4"
+         onclick="closePayment(event)">
+        <div class="bg-white rounded-2xl max-w-lg w-full max-h-[90vh] overflow-y-auto p-6 relative"
+             onclick="event.stopPropagation()">
+
+            <button onclick="closePayment()" 
+                    class="absolute top-4 right-4 text-gray-500 hover:text-[#f25623] text-3xl font-bold transition">
+                &times;
+            </button>
+
+            <h2 class="text-3xl font-bold mb-2 text-[#171717]">💳 Ödəniş</h2>
+            <p class="text-gray-500 mb-6">Kart məlumatlarınızı daxil edin</p>
+
+            <div class="bg-[#f5f5f5] rounded-xl p-4 mb-6 flex justify-between items-center">
+                <span class="font-semibold text-[#171717]">Ödəniləcək:</span>
+                <span id="paymentTotal" class="text-2xl font-bold text-[#f25623]">0 AZN</span>
+            </div>
+
+            <div class="mb-6">
+                <label class="block font-semibold text-[#171717] mb-3">Ödəniş üsulu:</label>
+                <div class="grid grid-cols-3 gap-3">
+                    <label class="cursor-pointer">
+                        <input type="radio" name="payment" value="visa" class="peer hidden" checked>
+                        <div class="border-2 border-gray-300 peer-checked:border-[#f25623] 
+                                    peer-checked:bg-[#f25623]/10 rounded-xl p-3 text-center transition duration-300">
+                            <p class="font-bold text-blue-600 text-lg">VISA</p>
+                        </div>
+                    </label>
+                    <label class="cursor-pointer">
+                        <input type="radio" name="payment" value="mastercard" class="peer hidden">
+                        <div class="border-2 border-gray-300 peer-checked:border-[#f25623] 
+                                    peer-checked:bg-[#f25623]/10 rounded-xl p-3 text-center transition duration-300">
+                            <p class="font-bold text-red-600 text-lg">MC</p>
+                        </div>
+                    </label>
+                    <label class="cursor-pointer">
+                        <input type="radio" name="payment" value="paypal" class="peer hidden">
+                        <div class="border-2 border-gray-300 peer-checked:border-[#f25623] 
+                                    peer-checked:bg-[#f25623]/10 rounded-xl p-3 text-center transition duration-300">
+                            <p class="font-bold text-blue-800 text-lg">PayPal</p>
+                        </div>
+                    </label>
+                </div>
+            </div>
+
+            <form id="paymentForm" onsubmit="processPayment(event)" class="space-y-4">
+                <div>
+                    <label class="block font-semibold text-[#171717] mb-2">Kart sahibinin adı</label>
+                    <input type="text" id="cardName" placeholder="AD SOYAD"
+                           class="w-full border-2 border-gray-300 rounded-xl p-3 
+                                  focus:border-[#f25623] focus:outline-none transition uppercase">
+                </div>
+
+                <div>
+                    <label class="block font-semibold text-[#171717] mb-2">Kart nömrəsi</label>
+                    <input type="text" id="cardNumber" placeholder="1234 5678 9012 3456"
+                           maxlength="19" oninput="formatCardNumber(this)"
+                           class="w-full border-2 border-gray-300 rounded-xl p-3 
+                                  focus:border-[#f25623] focus:outline-none transition tracking-widest">
+                </div>
+
+                <div class="grid grid-cols-2 gap-4">
+                    <div>
+                        <label class="block font-semibold text-[#171717] mb-2">Bitmə tarixi</label>
+                        <input type="text" id="cardExpiry" placeholder="AA/İİ"
+                               maxlength="5" oninput="formatExpiry(this)"
+                               class="w-full border-2 border-gray-300 rounded-xl p-3 
+                                      focus:border-[#f25623] focus:outline-none transition">
+                    </div>
+                    <div>
+                        <label class="block font-semibold text-[#171717] mb-2">CVV</label>
+                        <input type="text" id="cardCVV" placeholder="123"
+                               maxlength="3" oninput="this.value = this.value.replace(/[^0-9]/g, '')"
+                               class="w-full border-2 border-gray-300 rounded-xl p-3 
+                                      focus:border-[#f25623] focus:outline-none transition">
+                    </div>
+                </div>
+
+                <p id="paymentError" class="text-red-500 text-sm hidden"></p>
+
+                <button type="submit" 
+                        class="w-full bg-[#f25623] hover:bg-[#171717] text-white 
+                               py-4 rounded-full font-bold text-lg transition duration-300 mt-4">
+                    🔒 Ödənişi tamamla
+                </button>
+            </form>
+
+        </div>
+    </div>
+
+    
+    <div id="successModal" 
+         class="fixed inset-0 bg-black/60 z-120 hidden items-center justify-center p-4">
+        <div class="bg-white rounded-2xl max-w-md w-full p-8 text-center">
+
+            <div class="w-24 h-24 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-6">
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-14 h-14 text-green-500" 
+                     fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/>
+                </svg>
+            </div>
+
+            <h2 class="text-3xl font-bold text-[#171717] mb-3">Sifariş qəbul edildi! 🎉</h2>
+            <p class="text-gray-500 mb-2">Sifariş nömrəniz:</p>
+            <p id="orderNumber" class="text-2xl font-bold text-[#f25623] mb-6">#00000</p>
+            <p class="text-gray-600 mb-8">Yeməyiniz tezliklə hazırlanacaq. Bizi seçdiyiniz üçün təşəkkürlər! 🙏</p>
+
+            <button onclick="closeSuccess()" 
+                    class="w-full bg-[#f25623] hover:bg-[#171717] text-white 
+                           py-4 rounded-full font-bold text-lg transition duration-300">
+                Bağla
+            </button>
+
+        </div>
+    </div>
+
+    <script src="./main.js"></script>
+
+</body>
+</html>
