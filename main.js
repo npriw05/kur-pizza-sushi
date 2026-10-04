@@ -10,7 +10,7 @@ function addToCart(name, price) {
     }
     saveCart();
     updateCartUI();
-    showToast(`${name} səbətə əlavə edildi! ✅`);
+    showToast(`${name} Added to the list! ✅`);
 }
 
 function removeFromCart(index) {
@@ -49,7 +49,7 @@ function updateCartUI() {
     cartCount.textContent = totalCount;
 
     const total = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
-    cartTotal.textContent = total + " AZN";
+    cartTotal.textContent = total + " $";
 
     if (cart.length === 0) {
         cartItemsDiv.innerHTML = "";
@@ -63,7 +63,7 @@ function updateCartUI() {
         <div class="flex items-center justify-between bg-gray-100 p-4 rounded-xl">
             <div class="flex-1">
                 <p class="font-bold text-[#171717]">${item.name}</p>
-                <p class="text-sm text-[#f25623] font-semibold">${item.price} AZN</p>
+                <p class="text-sm text-[#f25623] font-semibold">${item.price}$</p>
             </div>
             <div class="flex items-center gap-2">
                 <button onclick="decreaseQuantity(${index})" 
@@ -109,14 +109,14 @@ function showToast(message) {
 
 function openPayment() {
     if (cart.length === 0) {
-        showToast("Səbətiniz boşdur! ❌");
+        showToast("Your cart is empty!❌");
         return;
     }
 
     closeCart();
 
     const total = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
-    document.getElementById("paymentTotal").textContent = total + " AZN";
+    document.getElementById("paymentTotal").textContent = total + " $";
 
     const modal = document.getElementById("paymentModal");
     modal.classList.remove("hidden");
@@ -159,24 +159,24 @@ function processPayment(event) {
     const cvv = document.getElementById("cardCVV").value;
 
     if (name.length < 3) {
-        showPaymentError("Ad və soyad daxil edin!");
+        showPaymentError("Enter your first and last name!");
         return;
     }
     if (number.length !== 16) {
-        showPaymentError("Kart nömrəsi 16 rəqəm olmalıdır!");
+        showPaymentError("The card number must be 16 digits long!");
         return;
     }
     if (expiry.length !== 5) {
-        showPaymentError("Bitmə tarixi AA/İİ formatında olmalıdır!");
+        showPaymentError("The end date must be in MM/DD format!");
         return;
     }
     if (cvv.length !== 3) {
-        showPaymentError("CVV 3 rəqəm olmalıdır!");
+        showPaymentError("The CVV must be 3 digits!");
         return;
     }
 
     const submitBtn = event.target.querySelector("button[type='submit']");
-    submitBtn.textContent = "⏳ İşlənir...";
+    submitBtn.textContent = "⏳ In progress...";
     submitBtn.disabled = true;
 
     setTimeout(() => {
@@ -194,7 +194,7 @@ function processPayment(event) {
         saveCart();
         updateCartUI();
 
-        submitBtn.textContent = "🔒 Ödənişi tamamla";
+        submitBtn.textContent = "🔒 Complete the payment";
         submitBtn.disabled = false;
     }, 2000);
 }
@@ -216,5 +216,5 @@ function closeSuccess() {
     document.body.style.overflow = "auto";
 }
 
-// Sayfa yüklendiğinde sepeti güncelle
+
 document.addEventListener("DOMContentLoaded", updateCartUI);
